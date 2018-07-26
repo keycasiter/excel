@@ -23,11 +23,11 @@ public class MySqlJdbcFactory {
      * 构建方法
      * @return
      */
-    public static Builder build(String driverClassName,String driverUrl,String userName,String passWord){
+    public static MySqlJdbcFactory.Builder build(String driverClassName,String driverUrl,String userName,String passWord){
         return new Builder(driverClassName,driverUrl,userName,passWord);
     }
-    public static Builder build(){
-        return new Builder(null,null,null,null);
+    public static MySqlJdbcFactory.Builder build(){
+        return new MySqlJdbcFactory.Builder(null,null,null,null);
     }
     /**
      * 构建类
@@ -136,32 +136,33 @@ public class MySqlJdbcFactory {
             return driverClassName;
         }
 
-        public void setDriverClassName(String driverClassName) {
-            this.driverClassName = driverClassName;
-        }
-
         public String getDriverUrl() {
             return driverUrl;
-        }
-
-        public void setDriverUrl(String driverUrl) {
-            this.driverUrl = driverUrl;
         }
 
         public String getUserName() {
             return userName;
         }
 
-        public void setUserName(String userName) {
-            this.userName = userName;
-        }
-
         public String getPassWord() {
             return passWord;
         }
 
-        public void setPassWord(String passWord) {
+        public Builder driverClassName(String driverClassName) {
+            this.driverClassName = driverClassName;
+            return this;
+        }
+        public Builder driverUrl(String driverUrl) {
+            this.driverUrl = driverUrl;
+            return this;
+        }
+        public Builder userName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+        public Builder passWord(String passWord) {
             this.passWord = passWord;
+            return this;
         }
 
         @Override
